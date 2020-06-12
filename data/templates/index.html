@@ -1,0 +1,16 @@
+<h1> Home </h1>
+{% load mptt_tags %}
+<ul>
+    {% recursetree data %}
+        <li>
+            {{ node.name }}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+{% comment %} https://django-mptt.readthedocs.io/en/latest/overview.html (Links to an external site.)Links to an external site. {% endcomment %}
